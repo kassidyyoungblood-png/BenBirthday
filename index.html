@@ -3,142 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Quest 2026</title>
+    <title>Birthday Mission Board</title>
     <style>
         :root {
-            --bg: #0d1117;
-            --path-color: #58a6ff;
-            --accent: #3fb950;
-            --text: #c9d1d9;
+            --bg: #05070a;
+            --card-bg: #111418;
+            --accent: #58a6ff; /* Tech Blue */
+            --highlight: #3fb950; /* Mission Green */
+            --text: #e6edf3;
         }
 
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .map-container {
-            position: relative;
-            max-width: 400px;
+        .header {
+            text-align: left;
             width: 100%;
+            max-width: 600px;
+            margin-bottom: 25px;
         }
 
-        /* The Dotted Map Path */
-        .map-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 20px;
-            height: 100%;
-            width: 2px;
-            border-left: 2px dashed var(--path-color);
-            z-index: 1;
+        .header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            background: linear-gradient(90deg, var(--accent), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .waypoint {
+        /* The Vision Board Grid */
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 150px;
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
             position: relative;
-            margin-bottom: 60px;
-            padding-left: 50px;
-            z-index: 2;
+            overflow: hidden;
         }
 
-        /* The Map Pin / Dot */
-        .waypoint::before {
-            content: '';
-            position: absolute;
-            left: 12px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background-color: var(--bg);
-            border: 3px solid var(--path-color);
-            border-radius: 50%;
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
-        .waypoint.active::before {
-            background-color: var(--accent);
-            box-shadow: 0 0 10px var(--accent);
-        }
+        /* Making some cards bigger for the "Vision Board" look */
+        .tall { grid-row: span 2; }
+        .wide { grid-column: span 2; }
 
-        .time {
-            font-size: 0.8rem;
-            color: var(--path-color);
+        .card-time {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--highlight);
             font-weight: bold;
         }
 
-        .label {
-            font-size: 1.1rem;
-            margin: 5px 0;
-            color: white;
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 5px;
         }
 
-        .desc {
+        .card-desc {
             font-size: 0.85rem;
             color: #8b949e;
-            margin-bottom: 10px;
+            margin-top: auto;
         }
 
-        .map-btn {
-            display: inline-block;
-            padding: 6px 12px;
-            font-size: 0.75rem;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            text-decoration: none;
-            border-radius: 4px;
+        .icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.2rem;
+            opacity: 0.5;
         }
-
-        .map-btn:hover {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        .header { text-align: center; margin-bottom: 50px; }
-        .header h1 { font-size: 1.5rem; color: var(--path-color); margin-bottom: 0; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>B-DAY_MAP_v2.0</h1>
-        <p style="font-size: 0.8rem;">[ STATUS: EN ROUTE ]</p>
+        <h1>Birthday_Protocol.v3</h1>
+        <p style="color: #8b949e; font-size: 0.9rem;">System Status: Optimization Complete</p>
     </div>
 
-    <div class="map-container">
+    <div class="board-grid">
         
-        <div class="waypoint active">
-            <div class="time">FRI | 18:00</div>
-            <div class="label">BASE CAMP</div>
-            <div class="desc">System initialization and check-in.</div>
-            <a href="MAP_LINK_1" class="map-btn">GET COORDINATES</a>
-        </div>
+        <a href="LINK_1" class="card wide">
+            <span class="icon">🏨</span>
+            <div class="content">
+                <div class="card-time">Friday | 18:00</div>
+                <div class="card-title">Base Station</div>
+                <div class="card-desc">Check-in & System Initialization.</div>
+            </div>
+        </a>
 
-        <div class="waypoint">
-            <div class="time">SAT | 11:00</div>
-            <div class="label">OPERATION: ADVENTURE</div>
-            <div class="desc">Outdoor activity module. Bring water.</div>
-            <a href="MAP_LINK_2" class="map-btn">LOCATE NODE</a>
-        </div>
+        <a href="LINK_2" class="card tall">
+            <span class="icon">⛰️</span>
+            <div class="content">
+                <div class="card-time">Saturday | 10:00</div>
+                <div class="card-title">Outdoor Module</div>
+                <div class="card-desc">Deploying to primary adventure coordinates. Requires high energy output.</div>
+            </div>
+        </a>
 
-        <div class="waypoint">
-            <div class="time">SAT | 19:30</div>
-            <div class="label">CULINARY REFUEL</div>
-            <div class="desc">High-priority reservation. </div>
-            <a href="MAP_LINK_3" class="map-btn">DECRYPT MENU</a>
-        </div>
+        <a href="LINK_3" class="card">
+            <span class="icon">🍔</span>
+            <div class="content">
+                <div class="card-time">Sat | 13:30</div>
+                <div class="card-title">Mid-Day Refuel</div>
+                <div class="card-desc">Casual node.</div>
+            </div>
+        </a>
 
-        <div class="waypoint">
-            <div class="time">SUN | 10:00</div>
-            <div class="label">FINAL_DEBRIEF.exe</div>
-            <div class="desc">Weekend summary and brunch.</div>
-            <a href="MAP_LINK_4" class="map-btn">END MISSION</a>
-        </div>
+        <a href="LINK_4" class="card">
+            <span class="icon">🥂</span>
+            <div class="content">
+                <div class="card-time">Sat | 19:00</div>
+                <div class="card-title">Evening Protocol</div>
+                <div class="card-desc">Fine dining logic.</div>
+            </div>
+        </a>
+
+        <a href="LINK_5" class="card wide">
+            <span class="icon">🍳</span>
+            <div class="content">
+                <div class="card-time">Sunday | 11:00</div>
+                <div class="card-title">Final Debrief</div>
+                <div class="card-desc">Brunch and mission summary before system shutdown.</div>
+            </div>
+        </a>
 
     </div>
 
