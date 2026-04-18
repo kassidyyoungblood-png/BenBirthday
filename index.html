@@ -3,125 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Protocol 2026</title>
+    <title>Birthday Quest 2026</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --accent-color: #58a6ff;
-            --text-main: #c9d1d9;
-            --text-dim: #8b949e;
+            --bg: #0d1117;
+            --path-color: #58a6ff;
+            --accent: #3fb950;
+            --text: #c9d1d9;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--bg);
+            color: var(--text);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 10px;
-        }
-
-        .header h1 {
-            color: var(--accent-color);
-            letter-spacing: 2px;
-            margin: 0;
-        }
-
-        .container {
-            max-width: 500px;
+        .map-container {
+            position: relative;
+            max-width: 400px;
             width: 100%;
         }
 
-        .waypoint-card {
-            background-color: var(--card-bg);
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: transform 0.2s;
+        /* The Dotted Map Path */
+        .map-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 2px;
+            border-left: 2px dashed var(--path-color);
+            z-index: 1;
         }
 
-        .waypoint-card:hover {
-            transform: scale(1.02);
-            border-color: var(--accent-color);
+        .waypoint {
+            position: relative;
+            margin-bottom: 60px;
+            padding-left: 50px;
+            z-index: 2;
         }
 
-        .timestamp {
-            color: var(--accent-color);
+        /* The Map Pin / Dot */
+        .waypoint::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--bg);
+            border: 3px solid var(--path-color);
+            border-radius: 50%;
+        }
+
+        .waypoint.active::before {
+            background-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .time {
             font-size: 0.8rem;
+            color: var(--path-color);
             font-weight: bold;
         }
 
-        .title {
-            font-size: 1.2rem;
-            margin: 10px 0;
+        .label {
+            font-size: 1.1rem;
+            margin: 5px 0;
+            color: white;
         }
 
-        .status {
-            font-size: 0.7rem;
-            color: #3fb950; /* Success green */
-            text-transform: uppercase;
+        .desc {
+            font-size: 0.85rem;
+            color: #8b949e;
+            margin-bottom: 10px;
         }
 
-        .btn {
+        .map-btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 8px 15px;
-            background: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            border: 1px solid var(--accent);
             text-decoration: none;
             border-radius: 4px;
-            font-size: 0.8rem;
         }
 
-        .btn:hover {
-            background: var(--accent-color);
-            color: var(--bg-color);
+        .map-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
         }
+
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { font-size: 1.5rem; color: var(--path-color); margin-bottom: 0; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>ACCESS GRANTED</h1>
-        <p>User: Benjamin | Protocol: Birthday_Weekend_2026</p>
+        <h1>B-DAY_MAP_v2.0</h1>
+        <p style="font-size: 0.8rem;">[ STATUS: EN ROUTE ]</p>
     </div>
 
-    <div class="container">
-        <div class="waypoint-card">
-            <div class="timestamp">SATURDAY | 8:00</div>
-            <div class="status">● System Initialized</div>
-            <div class="title">Waypoint: First Stop</div>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">Check-in and system calibration at the weekend base.</p>
-            <a href="https://maps.app.goo.gl/HUnPgjN4hNTJYDkL9?g_st=ic" class="btn">INITIALIZE NAVIGATION</a>
+    <div class="map-container">
+        
+        <div class="waypoint active">
+            <div class="time">FRI | 18:00</div>
+            <div class="label">BASE CAMP</div>
+            <div class="desc">System initialization and check-in.</div>
+            <a href="MAP_LINK_1" class="map-btn">GET COORDINATES</a>
         </div>
 
-        <div class="waypoint-card">
-            <div class="timestamp">SATURDAY | 8:00</div>
-            <div class="status">● Data Loading...</div>
-            <div class="title">Waypoint: Adventure.exe</div>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">Outdoor activity module. High energy levels required.</p>
-            <a href="INSERT_GOOGLE_MAPS_LINK_HERE" class="btn">VIEW COORDINATES</a>
+        <div class="waypoint">
+            <div class="time">SAT | 11:00</div>
+            <div class="label">OPERATION: ADVENTURE</div>
+            <div class="desc">Outdoor activity module. Bring water.</div>
+            <a href="MAP_LINK_2" class="map-btn">LOCATE NODE</a>
         </div>
 
-        <div class="waypoint-card">
-            <div class="timestamp">SATURDAY | 19:30</div>
-            <div class="status">● Optimized Dining</div>
-            <div class="title">Waypoint: Fuel Intake</div>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">Executing reservation at primary culinary node.</p>
-            <a href="INSERT_GOOGLE_MAPS_LINK_HERE" class="btn">DECRYPT MENU</a>
+        <div class="waypoint">
+            <div class="time">SAT | 19:30</div>
+            <div class="label">CULINARY REFUEL</div>
+            <div class="desc">High-priority reservation. </div>
+            <a href="MAP_LINK_3" class="map-btn">DECRYPT MENU</a>
         </div>
+
+        <div class="waypoint">
+            <div class="time">SUN | 10:00</div>
+            <div class="label">FINAL_DEBRIEF.exe</div>
+            <div class="desc">Weekend summary and brunch.</div>
+            <a href="MAP_LINK_4" class="map-btn">END MISSION</a>
+        </div>
+
     </div>
 
 </body>
