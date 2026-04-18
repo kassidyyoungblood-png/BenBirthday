@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Protocol 2026</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-dim: #8b949e;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .header h1 {
+            color: var(--accent-color);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .waypoint-card {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .waypoint-card:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-color);
+        }
+
+        .timestamp {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .status {
+            font-size: 0.7rem;
+            color: #3fb950; /* Success green */
+            text-transform: uppercase;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ACCESS GRANTED</h1>
+        <p>User: Husband | Protocol: Birthday_Weekend_2026</p>
+    </div>
+
+    <div class="container">
+        <div class="waypoint-card">
+            <div class="timestamp">FRIDAY | 18:00</div>
+            <div class="status">● System Initialized</div>
+            <div class="title">Waypoint: The Launch Pad</div>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Check-in and system calibration at the weekend base.</p>
+            <a href="INSERT_GOOGLE_MAPS_LINK_HERE" class="btn">INITIALIZE NAVIGATION</a>
+        </div>
+
+        <div class="waypoint-card">
+            <div class="timestamp">SATURDAY | 10:00</div>
+            <div class="status">● Data Loading...</div>
+            <div class="title">Waypoint: Adventure.exe</div>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Outdoor activity module. High energy levels required.</p>
+            <a href="INSERT_GOOGLE_MAPS_LINK_HERE" class="btn">VIEW COORDINATES</a>
+        </div>
+
+        <div class="waypoint-card">
+            <div class="timestamp">SATURDAY | 19:30</div>
+            <div class="status">● Optimized Dining</div>
+            <div class="title">Waypoint: Fuel Intake</div>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Executing reservation at primary culinary node.</p>
+            <a href="INSERT_GOOGLE_MAPS_LINK_HERE" class="btn">DECRYPT MENU</a>
+        </div>
+    </div>
+
+</body>
+</html>
